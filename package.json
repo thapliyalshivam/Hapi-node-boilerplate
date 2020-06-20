@@ -7,13 +7,13 @@
     "test": "echo \"Error: no test specified\" && exit 1  ",
     "build": "webpack --mode production",
     "start": "webpack-dev-server -w",
-    "try":"npx webpack -w"
+    "try": "npx webpack -w"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@hapi/hapi": "^19.1.1",
-    "mongoose": "^5.9.18"
+    "mongoose": "^5.9.19"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",

@@ -1,5 +1,7 @@
 const Hapi = require('@hapi/hapi');
 const mongo  = require('mongoose');
+const bootstrap = require('./Utils/Bootstrap');
+const queries = require("./Utils/DatabaseQueries") ;
 import models from"./Models";
 
 
@@ -14,10 +16,10 @@ const init = async () => {
         method: ['GET'],
         path: '/',
         handler: function (request, h) {
-    
+            queries.createEntry(models.dbkey,{dbkey:"sexxxyy"},()=>console.log("yo"))    
             return models.keyy;
         }
-        
+         
     });
 
     await server.start();
