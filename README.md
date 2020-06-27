@@ -22,10 +22,14 @@ The following functionalities and features are already integrated and implemente
 
 - [x] adding webpack and bundling
 - [x] adding monogoose database
-- [ ] adding joi 
-- [ ] adding routes
-- [ ] adding jest
+- [x] adding joi 
+- [x] adding routes
+- [x] adding jest
 - [ ] adding routing
+- [ ] split controllers
+- [ ] split routes
+- [ ] upload Example
+- [ ] Plugins 
 - [ ] write documentation
 - [ ] docker setup
 
