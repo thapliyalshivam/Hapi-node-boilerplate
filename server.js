@@ -2,7 +2,7 @@ const Hapi = require('@hapi/hapi');
 const mongo  = require('mongoose');
 const bootstrap = require('./Utils/Bootstrap');
 const queries = require("./Utils/DatabaseQueries") ;
-const models = require("./Models").default;
+const models = require("./Models");
 
 // import models from"./Models";
 
@@ -11,11 +11,11 @@ const Vision = require('@hapi/vision');
 const HapiSwagger = require('hapi-swagger');
 const Pack = require('./package.json');
 const Joi = require('@hapi/joi');
-
+var server ;
 
 
 const init = async () => {
-    const server = Hapi.server({
+     server = Hapi.server({
         port: 8080,
         host: 'localhost'
     });
@@ -44,9 +44,9 @@ const init = async () => {
 
             // handler: handlers.getToDo,
             options: {
-                handler: (request, reply)=>{
+                handler: (request, h)=>{
                     queries.createEntry(models.dbkey,{dbkey:"test ENtry "},()=>console.log("yo"))   
-                    reply("this works") ;
+                    return "this works" ;
                     //         return models.keyy;
                 },
                 description: 'Get todo',
@@ -56,7 +56,7 @@ const init = async () => {
                 validate: {
                 
                     params: Joi.object({
-                        id : Joi.number()
+                        ID : Joi.number()
                                 .required()
                                 .description('the id for the todo item'),
                     })
@@ -93,3 +93,5 @@ const init = async () => {
 };
 
 init();
+
+module.exports  = server;
