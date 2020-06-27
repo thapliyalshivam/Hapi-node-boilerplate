@@ -31,6 +31,10 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /my_client\/.*\.js$/,
+        use: 'imports-loader?define=>false'
+      },
+      {
         // Transpiles ES6-8 into ES5
         test: /\.js$/,
         loader: "babel-loader",
@@ -42,6 +46,7 @@ module.exports = {
 
   },
   node: {
+    fs:'empty',
     console: false,
     global: false,
     process: false,
@@ -52,19 +57,19 @@ module.exports = {
 
   devServer: {
     contentBase: './dist/server.js',
-    hot:true,
+    hot: true,
     compress: true,
     inline: true,
 
-  host: 'localhost', // Defaults to `localhost`
-  port: 3000, // Defaults to 8080
-  proxy: {
-    '^/api/*': {
-      target: 'http://localhost:8080/',
-      secure: false
-    }
+    host: 'localhost', // Defaults to `localhost`
+    port: 3000, // Defaults to 8080
+    proxy: {
+      '^/api/*': {
+        target: 'http://localhost:8080/',
+        secure: false
+      }
 
-  }
+    }
   }
 
 }

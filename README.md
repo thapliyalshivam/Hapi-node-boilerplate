@@ -13,8 +13,6 @@ The following functionalities and features are already integrated and implemente
 
 ## Getting started
 
-1. node - V 12+
-2. mongo - v4.2.7
 
 
 
@@ -24,6 +22,10 @@ The following functionalities and features are already integrated and implemente
 
 - [x] adding webpack and bundling
 - [x] adding monogoose database
+- [ ] adding joi 
+- [ ] adding routes
 - [ ] adding jest
 - [ ] adding routing
 - [ ] write documentation
+- [ ] docker setup
+
