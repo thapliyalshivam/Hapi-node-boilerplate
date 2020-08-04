@@ -6,8 +6,8 @@
   "scripts": {
     "test": "jest ",
     "build": "webpack --mode production",
-    "start": "webpack-dev-server -w",
-    "try": "npx webpack -w"
+    "start": "npx webpack -w"
+
   },
   "author": "",
   "license": "ISC",

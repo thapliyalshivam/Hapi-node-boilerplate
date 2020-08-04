@@ -3,6 +3,7 @@ const mongo  = require('mongoose');
 const bootstrap = require('./Utils/Bootstrap');
 const queries = require("./Utils/DatabaseQueries") ;
 const models = require("./Models");
+const route = require("./Routes");
 
 // import models from"./Models";
 
@@ -35,35 +36,38 @@ const init = async () => {
             options: swaggerOptions
         }
     ]);
+console.log(route);
 
-    server.route(
-        {
-            method: 'GET',
-            path: '/api/mem/{ID}',
+    server.route(route);
+
+    // server.route(
+    //     {
+    //         method: 'GET',
+    //         path: '/api/mem/{ID}',
 
 
-            // handler: handlers.getToDo,
-            options: {
-                handler: (request, h)=>{
-                    queries.createEntry(models.dbkey,{dbkey:"test ENtry "},()=>console.log("yo"))   
-                    return "this works" ;
-                    //         return models.keyy;
-                },
-                description: 'Get todo',
-                notes: 'Returns a todo item by the id passed in the path',
-                tags: ['api'], // ADD THIS TAG
-                auth:false,
-                validate: {
+    //         // handler: handlers.getToDo,
+    //         options: {
+    //             handler: (request, h)=>{
+    //                 queries.createEntry(models.dbkey,{dbkey:"test ENtry "},()=>console.log("yo"))   
+    //                 return "this works" ;
+    //                 //         return models.keyy;
+    //             },
+    //             description: 'Get todo',
+    //             notes: 'Returns a todo item by the id passed in the path',
+    //             tags: ['api'], // ADD THIS TAG
+    //             auth:false,
+    //             validate: {
                 
-                    params: Joi.object({
-                        ID : Joi.number()
-                                .required()
-                                .description('the id for the todo item'),
-                    })
-                }
-            },
-        }
-    );
+    //                 params: Joi.object({
+    //                     ID : Joi.number()
+    //                             .required()
+    //                             .description('the id for the todo item'),
+    //                 })
+    //             }
+    //         },
+    //     }
+    // );
 
 
 
@@ -89,7 +93,7 @@ const init = async () => {
 
 
     await server.start();
-    console.log('Server running on port 3000');
+    console.log('Server ssrunning on port 3000');
 };
 
 init();
